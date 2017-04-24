@@ -1,31 +1,29 @@
 $(document).ready(function() {
-    document.addEventListener("ready", function(){
-        getRepos();
-    });
+    getRepos();
 
     // Clear search results
-    $('.ui-input-clear').click(function(){
-        $('#search_list').hide();
-        $('#user_info').hide();
+    $( '.ui-input-clear' ).click(function() {
+        $( '#search_list' ).hide();
+        $( '#user_info' ).hide();
     });
 
-  $('#search_btn').click(function(e){
+  $('#search_btn').click(function(e) {
     e.preventDefault();
 
+	$('#search_list').empty();
+	
     var search_html = "";
     var user_html = "";
-    var username = $('#search_input').val();
-    var user_url   = 'https://api.github.com/users/'+username+
-    '?client_id=144bcbcb85644f5f3b15&client_secret=076a7dd0e4fc9380161e5d58824937a1e7d50e85';
-    var rep_url  = 'https://api.github.com/users/'+username+
-    '/repos?client_id=144bcbcb85644f5f3b15&client_secret=076a7dd0e4fc9380161e5d58824937a1e7d50e85';
+    var username = $( '#search_input' ).val();
+    var user_url = 'https://api.github.com/users/' + username + '?client_id=144bcbcb85644f5f3b15&client_secret=076a7dd0e4fc9380161e5d58824937a1e7d50e85';
+    var rep_url  = 'https://api.github.com/users/' + username + '/repos?client_id=144bcbcb85644f5f3b15&client_secret=076a7dd0e4fc9380161e5d58824937a1e7d50e85';
 
     $.ajax({
         url : rep_url,
         dataType : "jsonp",
         success : function (response) {
-            if(response.data.message == "Not Found") {
-                $('#msg').html("<h2>User Not Found</h2>");
+            if (response.data.message == "Not Found") {
+                $( '#msg' ).html("<h2>User Not Found</h2>");
             } else {
                 $.ajax({
                     url:user_url,
@@ -48,12 +46,12 @@ $(document).ready(function() {
 
                 // Output Search List
                 $( '#search_list' ).append(search_html);
-                $("#search_list").listview("refresh");
+                $( '#search_list' ).listview("refresh");
             }
         }
     });
   });
-  
+});
 
 function getRepos() {
   var html = "";
@@ -63,7 +61,7 @@ function getRepos() {
         dataType : "jsonp",
         success : function (response) {
         $.each( response.data, function (i,item) {
-             if(i < 10){
+             if (i < 10) {
                 html += '<li>' +
                 '<img src="'+ this.owner.avatar_url +'">' +
                 '<h1><a href="'+ this.html_url +'" target="_blank">' + this.name + '</a></h1>' +
@@ -72,8 +70,7 @@ function getRepos() {
             }
         });
         $( '#item_list' ).append( html );
-        $("#item_list").listview("refresh");
+        $( '#item_list' ).listview("refresh");
     }
 });
-}
-}); 
+} 
