@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+<body>
+<div id="container">
+	<div id="audio-image">
+		<img class="cover" />
+	</div>
+	<div id="audio-player">
+		<div id="audio-info">
+			<span class="artist"></span> - <span class="title"></span>
+		</div>
+		 <input id="volume" type="range" min="0" max="10" value="5" />
+		 <br>
+		 <div id="buttons">
+		 <span>
+			<button id="prev"></button>
+			<button id="play"></button>
+			<button id="pause"></button>
+			<button id="stop"></button>
+			<button id="next"></button>
+			</span>
+		 </div>
+		 <div class="clearfix"></div>
+		 <div id="tracker">
+			<div id="progressBar">
+				<span id="progress"></span>
+			</div>
+			<span id="duration"></span>
+		 </div>
+		 <div class="clearfix"></div>
+		 <ul id="playlist" class="hidden">
+			<li song="Enya - The Humming.mp3" cover="cover1.jpg" artist="Enya">The Humming.mp3</li>
+			<li song="Enya - So I Could Find My Way.mp3" cover="cover1.jpg" artist="Enya">So I Could Find My Way.mp3</li>
+			<li song="Enya - With You.mp3" cover="cover1.jpg" artist="Enya">Even in the Shadows</li>
+			<li song="Enya - Points Of Authority.mp3" cover="cover1.jpg" artist="Enya">The Forge of the Angels.mp3</li>
+			<li song="Enya - Crawling.mp3" cover="cover1.jpg" artist="Enya">Echoes in Rain.mp3</li>
+			<li song="Enya - Runaway.mp3" cover="cover1.jpg" artist="Enya">I Could Never Say Goodbye.mp3</li>
+			<li song="Enya - By Myself.mp3" cover="cover1.jpg" artist="Enya">Dark Sky Island.mp3</li>
+			<li song="Enya - In The End.mp3" cover="cover1.jpg" artist="Enya">Sancta Maria.mp3</li>
+			<li song="Enya - A Place For My Head.mp3" cover="cover1.jpg" artist="Enya">Astra et Luna.mp3</li>
+			<li song="Enya - Forgotten.mp3" cover="cover1.jpg" artist="Enya">The Loxian Gates.mp3</li>
+			<li song="Enya - Cure For The Itch.mp3" cover="cover1.jpg" artist="Enya">Diamonds on the Water.mp3</li>			
+		</ul>
+	</div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
