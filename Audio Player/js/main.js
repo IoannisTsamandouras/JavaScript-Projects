@@ -4,7 +4,7 @@ $('#pause').hide();
 initAudio($('#playlist li:first-child'));
 	
 function initAudio(element){
-	var song = element.attr('song');
+    var song = element.attr('song');
     var title = element.text();
     var cover = element.attr('cover');
     var artist = element.attr('artist');
